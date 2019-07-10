@@ -21,11 +21,11 @@
     http://www.atgc-montpellier.fr/phyml/usersguide.php?type=command
 
 """
-import logtools
+from . import logtools
 import os
-from util import PartitionFinderError
+from .util import PartitionFinderError
 import numpy as np
-import cStringIO
+import io
 from itertools import chain
 
 log = logtools.get_logger()
@@ -353,7 +353,7 @@ class Alignment(object):
             self.parse_stream(stream)
 
     def parse(self, text):
-        stream = cStringIO.StringIO(text)
+        stream = io.StringIO(text)
         self.parse_stream(stream)
 
     def write(self, pth):

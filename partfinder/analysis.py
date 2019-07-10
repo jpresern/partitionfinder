@@ -15,24 +15,24 @@
 # conditions, using PartitionFinder implies that you agree with those licences
 # and conditions as well.
 
-import logtools
+from . import logtools
 log = logtools.get_logger()
 
 import os
 import shutil
-from database import Database
+from .database import Database
 
-from alignment import Alignment, SubsetAlignment
-import threadpool
-import scheme
-import subset_ops
-import results
+from .alignment import Alignment, SubsetAlignment
+from . import threadpool
+from . import scheme
+from . import subset_ops
+from . import results
 import threading
 import collections
-from config import the_config
-from util import PartitionFinderError, ExternalProgramError
-import util
-import raxml
+from .config import the_config
+from .util import PartitionFinderError, ExternalProgramError
+from . import util
+from . import raxml
 from shutil import copyfile
 
 class AnalysisError(PartitionFinderError):
@@ -279,7 +279,7 @@ class Analysis(object):
 
         log.debug("chunk size (in number of subsets) = %d", n)
 
-        subset_chunks = [all_subsets[i:i + n] for i in xrange(0, len(all_subsets), n)]
+        subset_chunks = [all_subsets[i:i + n] for i in range(0, len(all_subsets), n)]
         
         for subsets in subset_chunks:
             # prepare the list of tasks

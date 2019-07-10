@@ -20,7 +20,7 @@ __VERSION__ = "2.1.1"
 import logging
 import sys
 import shlex
-import logtools
+from . import logtools
 
 logging.basicConfig(
     format="%(levelname)-8s | %(asctime)s | %(message)s",
@@ -31,15 +31,15 @@ log = logtools.get_logger()
 from optparse import OptionParser
 
 # We import everything here as it forces all of debug regions to be loaded
-import config
-import analysis_method
-import util
-import reporter
-import progress
+from . import config
+from . import analysis_method
+from . import util
+from . import reporter
+from . import progress
 import datetime
 import parser
-import raxml
-import phyml
+from . import raxml
+from . import phyml
 
 
 def debug_arg_callback(option, opt, value, theparser):

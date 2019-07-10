@@ -15,18 +15,18 @@
 # conditions, using PartitionFinder implies that you agree with those licences
 # and conditions as well.
 
-import logtools
+from . import logtools
 log = logtools.get_logger()
 
 import logging
 import os
 import fnmatch
-import scheme
-import subset
+from . import scheme
+from . import subset
 import parser
-import util
-import progress
-import cPickle as pickle
+from . import util
+from . import progress
+import pickle
 
 class ConfigurationError(util.PartitionFinderError):
     pass

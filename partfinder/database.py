@@ -15,7 +15,7 @@
 # conditions, using PartitionFinder implies that you agree with those licences
 # and conditions as well.
 
-import logtools
+from . import logtools
 log = logtools.get_logger()
 
 import os
@@ -23,8 +23,8 @@ import numpy
 import tables
 from itertools import combinations
 
-import raxml_models
-import phyml_models
+from . import raxml_models
+from . import phyml_models
 
 int_type = numpy.int32
 float_type = numpy.float32

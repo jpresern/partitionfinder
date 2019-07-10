@@ -15,7 +15,7 @@
 # conditions, using PartitionFinder implies that you agree with those licences
 # and conditions as well.
 
-import logtools
+from . import logtools
 log = logtools.get_logger()
 
 from pyparsing import (
@@ -26,12 +26,12 @@ from pyparsing import (
 # Use this for debugging
 # ParserElement.verbose_stacktrace = True
 
-import scheme
-import subset
-import subset_ops
-import config
-import model_loader as mo
-from util import PartitionFinderError
+from . import scheme
+from . import subset
+from . import subset_ops
+from . import config
+from . import model_loader as mo
+from .util import PartitionFinderError
 
 
 class ParserError(Exception):
@@ -264,11 +264,11 @@ class Parser(object):
             self.result = self.config_parser.ignore(pythonStyleComment).\
                 parseString(s)
 
-        except ParserError, p:
+        except ParserError as p:
             log.error(p.format_message())
             raise PartitionFinderError
 
-        except ParseException, p:
+        except ParseException as p:
             log.error("""There was a problem loading your .cfg file, please
                       check and try again""")
             log.error(str(p))

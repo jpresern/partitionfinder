@@ -15,16 +15,16 @@
 # conditions, using PartitionFinder implies that you agree with those licences
 # and conditions as well.
 
-import logtools
+from . import logtools
 log = logtools.get_logger()
 
 import os
 import numpy
 
-from alignment import Alignment, SubsetAlignment
-from util import (ParseError, PartitionFinderError, remove_runID_files, get_aic, get_aicc,
+from .alignment import Alignment, SubsetAlignment
+from .util import (ParseError, PartitionFinderError, remove_runID_files, get_aic, get_aicc,
                   get_bic)
-import subset_ops
+from . import subset_ops
 
 
 FRESH, PREPARED, DONE = range(3)
